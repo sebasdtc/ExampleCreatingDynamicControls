@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ExampleCreatingDynamicControls (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ExampleCreatingDynamicControls (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
