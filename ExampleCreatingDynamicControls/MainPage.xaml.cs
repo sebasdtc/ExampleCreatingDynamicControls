@@ -8,11 +8,17 @@ public sealed partial class MainPage : Page
     {
         ViewModel = new MainViewModel();
         this.InitializeComponent();
-        MyListView.ItemsSource = FilterControl.Grids;
+
+        myGrid.Children.Add(ViewModel.FilterListView.ListView);
+
+        Grid.SetRow(ViewModel.FilterListView.ListView, 1);
+
+        //MyListView.ItemsSource = FilterControl.Grids;
     }
 
     private void AppBarButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
     {
-        ViewModel.Add();
+        var filter = new Models.Filter();
+        ViewModel.FilterListView.AddItem(filter);
     }
 }

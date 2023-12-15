@@ -11,6 +11,7 @@
     mc:Ignorable="d">
 
     <Grid
+        x:Name="myGrid"
         Margin="10"
         HorizontalAlignment="Stretch"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -32,11 +33,6 @@
                 Label="Add" />
             <AppBarButton Icon="Delete" Label="Delete" />
         </CommandBar>
-
-        <ListView
-            x:Name="MyListView"
-            Grid.Row="1"
-            SelectionMode="None" />
 
     </Grid>
 </Page>

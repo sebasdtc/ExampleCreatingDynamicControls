@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ExampleCreatingDynamicControls.Models;
 using Microsoft.UI.Xaml.Controls;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace ExampleCreatingDynamicControls;
@@ -7,6 +9,7 @@ public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
     private ObservableCollection<FilterControl> _allFilter;
+    public FilterListView FilterListView { get; set; }
 
     public MainViewModel()
     {
@@ -19,10 +22,15 @@ public partial class MainViewModel : ObservableObject
     }
     public void init()
     {
-        _ = new FilterControl(new Models.Filter("Date Create", "before", "10-12-2023", typeof(CalendarDatePicker)));
-        _ = new FilterControl(new Models.Filter("Size", "equals", "60", typeof(NumberBox)));
-        _ = new FilterControl(new Models.Filter("Name", "contains", "archivo", typeof(TextBox)));
-        _ = new FilterControl(new Models.Filter("Extension", "is", "doc,xmls,pdf", typeof(TextBox)));
+        var filters = new List<Filter>
+        {
+            new ("Date Create", "before", "10-12-2023", typeof(CalendarDatePicker)),
+            new ("Size", "equals", "60", typeof(NumberBox)),
+            new ("Name", "contains", "archivo", typeof(TextBox)),
+            new ("Extension", "is", "doc,xmls,pdf", typeof(TextBox)),
+        };
+
+        FilterListView = new(filters);
     }
 
 }

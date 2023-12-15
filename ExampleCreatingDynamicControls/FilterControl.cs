@@ -76,9 +76,9 @@ public class FilterControl
 
     private void InitializeComponents()
     {
-        InitializeControls();
-        AddControlsToGrid();
-        DynamicControlCreation();
+        InitializeControls();// listo
+        AddControlsToGrid();//listo
+        DynamicControlCreation();//listo
         AssignItemssSource();
         AsssingEvents();
     }
